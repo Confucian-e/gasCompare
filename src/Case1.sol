@@ -42,8 +42,7 @@ contract Case1 {
     function pushOrder2Loop(uint256 _amount, uint256 times) public {
         Order memory newOrder = Order(_amount, block.timestamp + lockTime);
         for(uint256 i; i < times; i++) {
-            uint256 len = userOrderLen[msg.sender];
-            userOrder2[msg.sender][len] = newOrder;
+            userOrder2[msg.sender][i] = newOrder;
         }
         userOrderLen[msg.sender] += times;
     }
