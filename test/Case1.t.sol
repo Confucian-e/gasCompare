@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 import "forge-std/Test.sol";
 import "../src/Case1.sol";
 
-contract TestCase is Test {
+contract TestCase1 is Test {
     uint256 constant amount = 1e20;
     uint256 constant times = 100;
     Case1 case1;
