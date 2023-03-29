@@ -16,13 +16,20 @@ contract Case2 is ERC20 {
         lockBool = false;
     }
 
-
-    uint256 private lockUint = 1;
-    modifier nonReentrantUint {
-        require(lockUint == 1, 'Reentrancy');
-        lockUint = 2;
+    uint256 private lockUint12 = 1;
+    modifier nonReentrantUint12 {
+        require(lockUint12 == 1, 'Reentrancy');
+        lockUint12 = 2;
         _;
-        lockUint = 1;
+        lockUint12 = 1;
+    }
+
+    uint256 private lockUint01 = 0;
+    modifier nonReentrantUint01 {
+        require(lockUint01 == 0, 'Reentrancy');
+        lockUint12 = 1;
+        _;
+        lockUint12 = 0;
     }
 
 
@@ -30,7 +37,11 @@ contract Case2 is ERC20 {
         transfer(msg.sender, 1e20);
     }
 
-    function transferReentrantUint() public nonReentrantUint {
+    function transferReentrantUint12() public nonReentrantUint12 {
+        transfer(msg.sender, 1e20);
+    }
+
+    function transferReentrantUint01() public nonReentrantUint01 {
         transfer(msg.sender, 1e20);
     }
 }

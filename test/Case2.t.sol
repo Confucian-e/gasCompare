@@ -15,7 +15,11 @@ contract TestCase2 is Test {
         case2.transferReentrantBool();
     }
 
-    function test_transferReentrantUint() public {
-        case2.transferReentrantUint();
+    function test_transferReentrantUint01() public {
+        case2.transferReentrantUint01();
+    }
+
+    function test_transferReentrantUint12() public {
+        case2.transferReentrantUint12();
     }
 }
